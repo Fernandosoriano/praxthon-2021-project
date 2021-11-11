@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+</head>
+<body style="background-color: black;">
+    {% extends 'personas/layout.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-3">
+        <h1 style="color:white; text-align:center"  >Personas filtradas en la BD</h1>
+    </div>
+    {{habilidad}}
+    <div class="row mt-5">
+        <div class="col">
+            <table class="table  table-secondary table-striped table-hover"">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Perfil</th>
+                    <th scope="col">Habilidades</th>
+                    <th scope="col">Correo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for filt in res_filtrados %}
+                  <tr>
+                    <th scope="row">{{filt.id}}</th>
+                    <td>{{filt.nombre}}</td>
+                    <td>{{filt.telefono}}</td>
+                    <td>{{filt.perfil}}</td>
+                    <td>{{filt.habilidades}}</td>
+                    <td>{{filt.correo}}</td>
+            
+                  </tr>
+                  {% endfor %}
+            
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+    
+</body>
+</html>
